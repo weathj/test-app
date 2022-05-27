@@ -1,4 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:test_app/models/users.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -70,71 +73,9 @@ class _HomePageState extends State<HomePage> {
                 child: ListView(
                   children: [
                     CardTemplate(),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ProfileBanner,
-                          ),
-                          Image.asset(
-                              'assets/images/photo-1615751072497-5f5169febe17.jpeg')
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ProfileBanner,
-                          ),
-                          Image.asset(
-                              'assets/images/photo-1615751072497-5f5169febe17.jpeg')
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ProfileBanner,
-                          ),
-                          Image.asset(
-                              'assets/images/photo-1615751072497-5f5169febe17.jpeg')
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 2.0,
-                    ),
-                    Container(
-                        color: Colors.black54,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 8.0, bottom: 8.0, right: 8.0),
-                              child: Icon(Icons.favorite_border_outlined,
-                                  color: Colors.white),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Icon(Icons.insert_comment_outlined,
-                                  color: Colors.white),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Icon(Icons.messenger_outline,
-                                  color: Colors.white),
-                            ),
-                          ]),
-                        ))
+                    CardTemplate(),
+                    CardTemplate(),
+                    CardTemplate(),
                   ],
                 ),
               ))
@@ -143,58 +84,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-var ProfileDots = new Row(
-  mainAxisAlignment: MainAxisAlignment.end,
-  children: <Widget>[
-    const CircleAvatar(
-        radius: 30.0,
-        backgroundImage: NetworkImage(
-            "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg")),
-    Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: const Text(
-        "This is a profile",
-        style: TextStyle(color: Colors.white),
-        textAlign: TextAlign.left,
-      ),
-    ),
-    SizedBox(
-      height: 2.0,
-    ),
-    Container(
-        color: Colors.black54,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(children: [
-            Padding(
-              padding:
-                  const EdgeInsets.only(left: 8.0, bottom: 8.0, right: 8.0),
-              child: Icon(Icons.favorite_border_outlined, color: Colors.white),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.insert_comment_outlined, color: Colors.white),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.messenger_outline, color: Colors.white),
-            ),
-          ]),
-        ))
-  ],
-);
-
-var ProfileBanner = new Row(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  crossAxisAlignment: CrossAxisAlignment.center,
-  mainAxisSize: MainAxisSize.max,
-  children: <Widget>[
-    ProfileDots,
-    Icon(Icons.more_horiz_outlined, color: Colors.white)
-  ],
-);
-
 Widget CardTemplate() {
   var CardBannerRight = new Row(
     mainAxisAlignment: MainAxisAlignment.end,
@@ -205,7 +94,7 @@ Widget CardTemplate() {
               "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg")),
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: const Text(
+        child: Text(
           "This is a profile",
           style: TextStyle(color: Colors.white),
           textAlign: TextAlign.left,
@@ -219,7 +108,7 @@ Widget CardTemplate() {
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisSize: MainAxisSize.max,
     children: <Widget>[
-      ProfileDots,
+      CardBannerRight,
       Icon(Icons.more_horiz_outlined, color: Colors.white)
     ],
   );
@@ -229,7 +118,7 @@ Widget CardTemplate() {
     child: Column(children: [
       Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ProfileBanner,
+        child: CardBanner,
       ),
       Image.asset('assets/images/photo-1615751072497-5f5169febe17.jpeg'),
       SizedBox(
@@ -255,7 +144,31 @@ Widget CardTemplate() {
                 child: Icon(Icons.messenger_outline, color: Colors.white),
               ),
             ]),
-          ))
+          )
+        ),
+        Container(
+          child: Row(
+            children: [
+              Text(
+                jake.username,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold
+                )
+                ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text(
+                  "Look at this happy dog",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                  ),
+              )
+            ],
+          ),
+        )
     ]),
   );
 }
+
