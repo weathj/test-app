@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:test_app/models/users.dart';
+import 'package:test_app/card_template.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -72,10 +73,8 @@ class _HomePageState extends State<HomePage> {
                     92.0, //92 is height of App Bar
                 child: ListView(
                   children: [
-                    CardTemplate(),
-                    CardTemplate(),
-                    CardTemplate(),
-                    CardTemplate(),
+                    CardTemplate(name: jake.name, username: jake.username, profile_pic: jake.profile_pic),
+                    CardTemplate(name: tom.name, username: tom.username, profile_pic: tom.profile_pic)
                   ],
                 ),
               ))
@@ -84,91 +83,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-Widget CardTemplate() {
-  var CardBannerRight = new Row(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: <Widget>[
-      const CircleAvatar(
-          radius: 30.0,
-          backgroundImage: NetworkImage(
-              "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg")),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          "This is a profile",
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.left,
-        ),
-      ),
-    ],
-  );
-
-  var CardBanner = new Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    mainAxisSize: MainAxisSize.max,
-    children: <Widget>[
-      CardBannerRight,
-      Icon(Icons.more_horiz_outlined, color: Colors.white)
-    ],
-  );
-
-  return Card(
-    color: Colors.black,
-    child: Column(children: [
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: CardBanner,
-      ),
-      Image.asset('assets/images/photo-1615751072497-5f5169febe17.jpeg'),
-      SizedBox(
-        height: 2.0,
-      ),
-      Container(
-          color: Colors.black54,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(children: [
-              Padding(
-                padding:
-                    const EdgeInsets.all(8.0),
-                child:
-                    Icon(Icons.favorite_border_outlined, color: Colors.white),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(Icons.insert_comment_outlined, color: Colors.white),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(Icons.messenger_outline, color: Colors.white),
-              ),
-            ]),
-          )
-        ),
-        Container(
-          child: Row(
-            children: [
-              Text(
-                jake.username,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
-                )
-                ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Text(
-                  "Look at this happy dog",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                  ),
-              )
-            ],
-          ),
-        )
-    ]),
-  );
-}
-
