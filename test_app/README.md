@@ -1,6 +1,6 @@
 # test_app
 
-A new Flutter project.
+A new Flutter project, creating an instagram clone to learn Flutter
 
 ## Getting Started
 
