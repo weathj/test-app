@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/screens/home_page.dart';
 import 'screens/home_page.dart';
+import 'screens/profile_screen.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -35,46 +37,34 @@ class _FirstPageState extends State<FirstPage> {
   int currentIndex = 0;
     final screens = [
     HomePage(),
-    SecondPage()
+    ProfilePage()
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        toolbarHeight: 45.0,
-        backgroundColor: Colors.black,
-        leading:
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Image.asset('assets/images/instagram.png'),
-          ),
-        actions: <Widget>[
-          IconButton(
-              onPressed: (){}, 
-              icon: Icon(Icons.add_box_outlined)),
-          IconButton(
-              onPressed: (){}, 
-              icon: Icon(Icons.favorite_border_outlined)),
-          IconButton(
-              onPressed: (){}, 
-              icon: Icon(Icons.messenger_outline_rounded))
-          ]
+      body: screens[currentIndex], //HomePage()
+      bottomNavigationBar: SizedBox(
+        height: 90.0,
+        width: 40.0,
+        child: BottomNavigationBar(
+          showSelectedLabels: false,
+          backgroundColor: Colors.black,
+          showUnselectedLabels: false,
+          currentIndex: currentIndex,
+          onTap: (index) => setState(() => currentIndex = index),
+          items: const [
+            BottomNavigationBarItem(
+              label: "Home", 
+              icon: Icon(Icons.home, color: Colors.white)),
+            // BottomNavigationBarItem(
+            //     label: "Settings", 
+            //     icon: Icon(Icons.search, color: Colors.white)),
+            BottomNavigationBarItem(
+                label: "Profile", 
+                icon: Icon(Icons.person, color: Colors.white)),
+        ],
         ),
-      body: HomePage(), //screens[currentIndex];
-      // bottomNavigationBar: BottomNavigationBar(
-      //   showUnselectedLabels: false,
-      //   currentIndex: currentIndex,
-      //   onTap: (index) => setState(() => currentIndex = index),
-      //   items: const [
-      //     BottomNavigationBarItem(
-      //       label: "Home", 
-      //       icon: Icon(Icons.home)),
-      //     BottomNavigationBarItem(
-      //         label: "Settings", 
-      //         icon: Icon(Icons.settings)),
-      //   ],
-      // )
+      )
     );
   }
 }
@@ -88,3 +78,14 @@ class SecondPage extends StatelessWidget {
     );
   }
 }
+
+// class Test extends StatelessWidget{
+//   const Test({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context){
+//     return Scaffold(
+//       body:             
+//     );
+//   }
+// }
