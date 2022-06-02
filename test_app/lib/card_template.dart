@@ -1,11 +1,13 @@
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:test_app/models/post.dart';
 
 class CardTemplate extends StatelessWidget {
   CardTemplate(
-      {required this.name, required this.username, required this.profile_pic});
+      {required this.post, required this.name, required this.username, required this.profile_pic});
 
+  final Post post;
   final String name;
   final String username;
   final String profile_pic;
@@ -42,7 +44,7 @@ class CardTemplate extends StatelessWidget {
                 Icon(Icons.more_horiz_outlined, color: Colors.white)
               ],
             )),
-        Image.asset('assets/images/photo-1615751072497-5f5169febe17.jpeg'),
+        Image.asset(post.image),//Image.asset('assets/images/photo-1615751072497-5f5169febe17.jpeg'),
         SizedBox(
           height: 2.0,
         ),
@@ -76,7 +78,7 @@ class CardTemplate extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
-                  "Look at this happy dog",
+                  post.comment,
                   style: TextStyle(
                     color: Colors.white,
                   ),

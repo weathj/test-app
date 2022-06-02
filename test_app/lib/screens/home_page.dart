@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:test_app/models/users.dart';
 import 'package:test_app/card_template.dart';
+import 'package:test_app/models/post.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,6 +17,27 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     double stories_height = 100.0;
     return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        toolbarHeight: 45.0,
+        backgroundColor: Colors.black,
+        leading:
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset('assets/images/instagram.png'),
+          ),
+        actions: <Widget>[
+          IconButton(
+              onPressed: (){}, 
+              icon: Icon(Icons.add_box_outlined)),
+          IconButton(
+              onPressed: (){}, 
+              icon: Icon(Icons.favorite_border_outlined)),
+          IconButton(
+              onPressed: (){}, 
+              icon: Icon(Icons.messenger_outline_rounded))
+          ]
+        ),
       body: Column(
         children: [
           Container(
@@ -70,11 +92,13 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.black,
                 height: MediaQuery.of(context).size.height -
                     stories_height -
-                    92.0, //92 is height of App Bar
+                    82.0 -  //82 is height of App Bar
+                    100.0, // 100 is height of bottom nav bar
                 child: ListView(
                   children: [
-                    CardTemplate(name: jake.name, username: jake.username, profile_pic: jake.profile_pic),
-                    CardTemplate(name: tom.name, username: tom.username, profile_pic: tom.profile_pic)
+                    CardTemplate(post: post1,name: jake.name, username: jake.username, profile_pic: jake.profile_pic),
+                    CardTemplate(post: post3,name: mason.name, username: mason.username, profile_pic: mason.profile_pic),
+                    CardTemplate(post: post2, name: raeann.name, username: raeann.username, profile_pic: raeann.profile_pic)
                   ],
                 ),
               ))
