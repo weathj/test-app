@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: <Widget>[
+                children:  <Widget>[
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: CircleAvatar(
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                         radius: 40.0,
                         backgroundImage: NetworkImage(
                             "https://kb.rspca.org.au/wp-content/uploads/2018/11/golder-retriever-puppy.jpeg")),
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                         radius: 40.0,
                         backgroundImage: NetworkImage(
                             "https://www.thesprucepets.com/thmb/3AppeNqnPUIjmcH-eyLCdH1PvF0=/1500x1000/filters:fill(auto,1)/top-friendliest-dog-breeds-4691511_hero-5c6a918dcf56409c888d78b0fac82d18.jpg")),

@@ -6,8 +6,8 @@ import 'package:test_app/card_template.dart';
 import 'package:test_app/models/post.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
-
+  // const ProfilePage({required this.user});
+  // final User user;
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
@@ -71,16 +71,16 @@ class _ProfilePageState extends State<ProfilePage> {
                   ]
                 ),
               SizedBox(
-                height: 60,
+                height: 90,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Jacob Weathermon", style: TextStyle(color: Colors.white, fontSize: 15)),
+                      child: Text("Jacob Weathermon", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w900)),
                     ),
-                    Text("This is my profile, tell me what you would like to know", style: TextStyle(color: Colors.white)),
+                    Text("This is my profile, tell me what you would like to know. My name is jake and I developed this applcation for my freinds and I to post images of our favorite dogs", style: TextStyle(color: Colors.white)),
                   ],
                 ),
               ),
@@ -121,7 +121,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               SizedBox(
-                height: 390,
+                height: 380,
                 child: GridView(
                   scrollDirection: Axis.vertical,
                   addRepaintBoundaries: false,
